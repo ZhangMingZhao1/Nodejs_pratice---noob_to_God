@@ -13,14 +13,18 @@ http.createServer(function(req, res) {
         //包括文件，文件夹
         for(var i = 0; i < files.length; i++) {
             var thefilename = files[i];
-            //又要进行一次检测
-            fs.stat("./album" + thefilename, function(err,stats) {
+            // 又要进行一次检测
+            fs.stat("./album/" + thefilename, function(err,stats) {
                 //如果他是一个文件夹，那么输出它：
+                if(err) {
+                    throw err;
+                }
                 if(stats.isDirectory()) {
                     ddir.push(thefilename);
                 }
                 console.log(ddir);
             });
+            // console.log(thefilename);
         }
     })
 }).listen(3000,"127.0.0.1");
