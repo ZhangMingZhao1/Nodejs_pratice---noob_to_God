@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .header{
+            width:980px;
+            height:100px;
+            margin:0 auto;
+            background-color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            width:980px;
+            margin:0 auto;
+        }
+        .main {
+            float: left;
+            width:599px;
+            margin-right: 20px;
+            border-right:1px solid red;
+        }
+        .aside {
+            float: left;
+            width: 360px;
+            height: 400px;
+            background-color: #ccc;
+        }
+        h1 {
+            text-align: center;
+        }
+        .grid {
+            border-bottom: 1px solid #333;
+            box-shadow: 1px 1px 1px #333;
+            margin-bottom: 10px;
+            border-radius: 10px
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="content">
+        <div class="main">
+        </div>
+
+        <div class="aside"></div>
+    </div>
+
+    <script type="text/template" id = "moban">
+        <div class="grid">
+            <h3><%= biaoti %></h3>
+            <p>发布时间：<%= shijian %> 作者：<%= zuozhe %></p>
+            <p><%= neirong %></p>
+            <p><a href="">详细</a></p>
+        </div>
+    </script>
+
+    <script type = "text/javascript" src = "jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src = "underscore.js"></script>
+
+    <script type="text/javascript">
+        //得到模版内容
+        var mobanstring = $("#moban").html();
+        var compiled = _.template(mobanstring);
+        //发出AJAX请求,得到JSON数据
+        $.get("/news",function (data,status) {
+            for(var i = 0; i < data.length; i++) {
+                var compiledString = compiled(data[i]);
+                $(".main").append($(compiledString));
+            }
+        });
+    </script>
+</body>
+</html>

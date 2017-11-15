@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .header{
+            width:980px;
+            height:100px;
+            margin:0 auto;
+            background-color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            width:980px;
+            margin:0 auto;
+        }
+        .main {
+            float: left;
+            width:599px;
+            margin-right: 20px;
+            border-right:1px solid red;
+        }
+        .aside {
+            float: left;
+            width: 360px;
+            height: 400px;
+            background-color: #ccc;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="content">
+        <div class="main">
+            <h1><%= biaoti %></h1>
+            <p>时间：<%= shijian %> 作者：<%= zuozhe %></p>
+            <p><%= neirong %></p>
+        </div>
+
+        <div class="aside"></div>
+    </div>
+</body>
+</html>
