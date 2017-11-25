@@ -15,7 +15,7 @@ app.get("/",function (req,res) {
 app.get("/du",function (req, res) {
     //这个页面现在接受一个page参数。
     var page = parseInt(req.query.page); //express中读取get参数很简单
-
+    //查找4个参数，在哪个集合查，查什么，分页设置，查完之后做什么
     //每页10个，查第三页
     // db.find("student",{},{"pageamount":5,"page":page},function (err,result) {
     // db.find("student",{},function (err,result) {
