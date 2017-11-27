@@ -6,8 +6,8 @@ var app = express()
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: true
-
+    saveUninitialized: true,
+    cookie: { secure: false }
 }));
 
 app.get("/",function (req,res) {
