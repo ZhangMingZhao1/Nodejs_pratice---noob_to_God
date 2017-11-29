@@ -23,6 +23,7 @@ app.get("/docut",function (req,res,next) {
         .crop(w, h, x, y)
         .resize(100,100,"!")
         .write("./picture/1.jpg",function (err) {
+            //为什么err为空还会运行这段代码，bug
         // if(err) {
         //     res.send("-1");
         //     return;
