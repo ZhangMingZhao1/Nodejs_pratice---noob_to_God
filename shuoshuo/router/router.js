@@ -3,14 +3,35 @@ var db = require("../models/db.js");
 var md5 = require("../models/md5.js");
 //显示主页
 exports.showIndex = function (req,res,next) {
-    res.render("index",{
-        "login" : req.session.login == "1" ? true : false,
-        "username" : req.session.login == "1" ? req.session.username : ""
-    });
+    //检索数据库，查找此人的头像
+    if(req.session.login = "1") {
+        //已经登陆了，那么就要检索数据库，查头像
+        db.find("users",{username:req.session.username},function (err,result) {
+            var avatar = result[0].avatar ||"defaultPic.jpg";
+            res.render("index",{
+                "login" : req.session.login == "1" ? true : false,
+                "username" : req.session.login == "1" ? req.session.username : "",
+                "active" : "主页",
+                "avatar" : avatar
+            });
+        });
+    }else {
+        res.render("index",{
+            "login" : req.session.login == "1" ? true : false,
+            "username" : req.session.login == "1" ? req.session.username : "",
+            "active" : "主页",
+            "avatar" : "defaultPic.jpg"
+        });
+    }
+
 };
 //注册页面
 exports.showRegist = function (req,res,next) {
-    res.render("regist");
+    res.render("regist",{
+        "login" : req.session.login == "1" ? true : false,
+        "username" : req.session.login == "1" ? req.session.username : "",
+        "active" : "注册"
+    });
 };
 
 exports.showdoRegist = function (req,res,next) {
@@ -39,10 +60,11 @@ exports.showdoRegist = function (req,res,next) {
             //现在可以证明，用户名没有被占用
             db.insertOne("users",{
                 "username" : username,
-                "password" : password
+                "password" : password,
+                "avatar" : "defaultPic.jpg"
             },function (err,result) {
 
-                console.log(result);
+                // console.log(result);
                 if(err) {
                     res.send("-3"); //服务器错误
                     console.log("错误");
@@ -63,7 +85,11 @@ exports.showdoRegist = function (req,res,next) {
 }
 
 exports.showLogin = function (req,res,next) {
-    res.render("login");
+    res.render("login",{
+        "login" : req.session.login == "1" ? true : false,
+        "username" : req.session.login == "1" ? req.session.username : "",
+        "active" : "登陆"
+    });
 }
 
 exports.showdologin = function (req,res,next) {

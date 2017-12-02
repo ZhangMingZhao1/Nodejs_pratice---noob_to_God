@@ -17,6 +17,7 @@ app.use(session({
 
 //静态页面
 app.use(express.static("./public"));
+app.use("/avatar",express.static("./avatar"));
 
 //路由表
 app.get("/",router.showIndex);
