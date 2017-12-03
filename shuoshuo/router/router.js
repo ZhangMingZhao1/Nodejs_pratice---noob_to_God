@@ -1,28 +1,39 @@
 var formidable = require("formidable");
 var db = require("../models/db.js");
 var md5 = require("../models/md5.js");
+var path = require("path");
+var fs = require("fs");
+var formidable = require('formidable');
+var gm = require("gm");
+
 //显示主页
 exports.showIndex = function (req,res,next) {
+
     //检索数据库，查找此人的头像
-    if(req.session.login = "1") {
-        //已经登陆了，那么就要检索数据库，查头像
-        db.find("users",{username:req.session.username},function (err,result) {
-            var avatar = result[0].avatar ||"defaultPic.jpg";
-            res.render("index",{
-                "login" : req.session.login == "1" ? true : false,
-                "username" : req.session.login == "1" ? req.session.username : "",
-                "active" : "主页",
-                "avatar" : avatar
-            });
-        });
+    if(req.session.login == "1") {
+        //如果登陆了
+        var username = req.session.username;
+        var login = true;
+
     }else {
+        //没有登陆
+        var username = ""; //制定一个空用户名
+        var login = false;
+    }
+    //已经登陆了，那么就要检索数据库，查登陆这个人的头像
+    db.find("users",{username:req.session.username},function (err,result) {
+        if(result.length == 0) {
+            var avatar = "defaultPic.jpg";
+        }else {
+            var avatar = result[0].avatar;
+        }
         res.render("index",{
             "login" : req.session.login == "1" ? true : false,
             "username" : req.session.login == "1" ? req.session.username : "",
             "active" : "主页",
-            "avatar" : "defaultPic.jpg"
+            "avatar" : avatar
         });
-    }
+    });
 
 };
 //注册页面
@@ -131,3 +142,72 @@ exports.showdologin = function (req,res,next) {
         });
 
 }
+
+//设置头像页面，必须保证此时是登陆状态
+exports.showSetAvatar = function (req,res,next) {
+    if(req.session.login != "1") {
+        res.send("非法闯入，这个页面要求登陆！");
+        return ;
+    }
+
+    res.render("setAvatar",{
+        "login": true,
+        "username":req.session.username || "大熊",
+        "active" : "更改头像"
+    });
+
+};
+
+exports.showdoSetAvatar = function (req,res,next) {
+    var form = new formidable.IncomingForm();
+    form.uploadDir = path.normalize(__dirname + "/../" + "avatar");
+    form.parse(req,function (err,fields,files) {
+        var oldpath = files.avatar.path;
+        var newpath = path.normalize(__dirname + "/../avatar") + "/" + req.session.username + ".jpg";
+        fs.rename(oldpath,newpath,function (err,result) {
+            if(err) {
+                res.send("失败");
+                return;
+            }
+            req.session.avatar = req.session.username + ".jpg";
+            //跳转到切的业务
+            res.redirect("/cut");
+        })
+    });
+}
+
+exports.showCut = function (req,res) {
+    res.render("cut",{
+        avatar : req.session.avatar
+    });
+}
+
+//执行切图
+exports.docut = function (req,res,next) {
+    //这个页面接收几个get请求参数
+    //文件名，w，h，x，y
+    var filename = req.session.avatar;
+    var w = req.query.w;
+    var h = req.query.h;
+    var x = req.query.x;
+    var y = req.query.y;
+
+    gm('./avatar/' + filename)
+        .crop(w, h, x, y)
+        .resize(100,100,"!")
+        .write("./avatar/" + filename,function (err) {
+            //为什么err为空还会运行这段代码，bug
+            // if(err) {
+            //     res.send("-1");
+            //     return;
+            // }
+            //更改数据库当前用户的avatar这个值
+            db.updateMany("users",{"username":req.session.username},{
+                $set : {"avatar" : req.session.avatar}},function(){
+                    //注意这里应该前端页面做返回，AJAX来实现返回效果
+                    res.send("1");
+                })
+            });
+
+
+        }

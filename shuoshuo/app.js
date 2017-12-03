@@ -25,6 +25,9 @@ app.get("/regist",router.showRegist);
 app.get("/login",router.showLogin);
 app.post("/doregist",router.showdoRegist);
 app.post("/dologin",router.showdologin);
-
+app.get("/setAvatar",router.showSetAvatar);
+app.post("/doSetAvatar",router.showdoSetAvatar);
+app.get("/cut",router.showCut);
+app.get("/docut",router.docut);
 
 app.listen(3000);
