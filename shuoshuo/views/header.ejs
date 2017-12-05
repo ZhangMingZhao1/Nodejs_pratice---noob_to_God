@@ -1,3 +1,4 @@
+<!--这个页面是共享的-->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -11,9 +12,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li <% if(active=="首页"){ %> class = "active" <% } %> ><a href="/">全部说说 <span class="sr-only">(current)</span></a></li>
-                <li><a href="/user/小红">我的说说</a></li>
-                <li><a href="/alluser">我的说说</a></li>
+                <li <% if(active=="主页"){ %> class = "active" <% } %> ><a href="/">全部说说 <span class="sr-only">(current)</span></a></li>
+                <li <% if(active=="我的说说"){ %> class = "active" <% } %> ><a href="/user/小红">我的说说</a></li>
+                <li <% if(active=="成员列表"){ %> class = "active" <% } %> ><a href="/alluser">我的说说</a></li>
             </ul>
             <%
             if(!login) {

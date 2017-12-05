@@ -65,6 +65,7 @@ exports.showdoRegist = function (req,res,next) {
                 res.send("-1"); //被占用
                 return;
             }
+            //没有这个人，可以注册了
             // console.log(result.length);
             //设置md5加密
             password = md5(password) + "lawliet";

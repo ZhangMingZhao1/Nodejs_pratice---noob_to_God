@@ -20,14 +20,14 @@ app.use(express.static("./public"));
 app.use("/avatar",express.static("./avatar"));
 
 //路由表
-app.get("/",router.showIndex);
-app.get("/regist",router.showRegist);
-app.get("/login",router.showLogin);
-app.post("/doregist",router.showdoRegist);
-app.post("/dologin",router.showdologin);
-app.get("/setAvatar",router.showSetAvatar);
-app.post("/doSetAvatar",router.showdoSetAvatar);
-app.get("/cut",router.showCut);
-app.get("/docut",router.docut);
+app.get("/",router.showIndex);    //显示首页
+app.get("/regist",router.showRegist);  //显示注册页面
+app.get("/login",router.showLogin);  //显示登陆页面
+app.post("/doregist",router.showdoRegist); //执行注册，AJAX服务
+app.post("/dologin",router.showdologin); //执行注册，AJAX服务
+app.get("/setAvatar",router.showSetAvatar); //设置头像页面
+app.post("/doSetAvatar",router.showdoSetAvatar); //执行设置头像,AJAX服务
+app.get("/cut",router.showCut); //剪裁头像页面
+app.get("/docut",router.docut); //执行剪裁
 
 app.listen(3000);
