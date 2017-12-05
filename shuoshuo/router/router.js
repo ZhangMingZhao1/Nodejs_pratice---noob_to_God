@@ -212,3 +212,61 @@ exports.docut = function (req,res,next) {
 
 
         }
+
+
+exports.dopost = function (req,res,next) {
+    //需要用户登陆
+
+    if(req.session.login != "1") {
+        res.end("非法闯入，这个页面要求登陆! ");
+        return ;
+    }
+    //得到用户填写的东西
+    var form = new formidable.IncomingForm();
+
+    form.parse(req, function(err, fields, files) {
+        //得到表单之后做的事情
+        var username = fields.username;
+        var password = fields.password;
+        console.log(username + " " + password);
+        //查询数据库中是不是有这个人
+        db.find("users",{"username":username},function (err,result) {
+            if(err) {
+                //服务器错误
+                res.send("-3");
+                return ;
+            }
+            if(result.length != 0) {
+                res.send("-1"); //被占用
+                return;
+            }
+            //没有这个人，可以注册了
+            // console.log(result.length);
+            //设置md5加密
+            password = md5(password) + "lawliet";
+            //现在可以证明，用户名没有被占用
+            db.insertOne("users",{
+                "username" : username,
+                "password" : password,
+                "avatar" : "defaultPic.jpg"
+            },function (err,result) {
+
+                // console.log(result);
+                if(err) {
+                    res.send("-3"); //服务器错误
+                    console.log("错误");
+                    return;
+                }
+
+                req.session.login = "1";
+                req.session.username = username;
+
+                res.send("1");//注册成功，写入session
+
+            })
+        });
+
+        //保存这个人
+
+    });
+}
