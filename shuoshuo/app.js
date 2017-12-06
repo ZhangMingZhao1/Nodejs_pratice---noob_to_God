@@ -29,6 +29,7 @@ app.get("/setAvatar",router.showSetAvatar); //设置头像页面
 app.post("/doSetAvatar",router.showdoSetAvatar); //执行设置头像,AJAX服务
 app.get("/cut",router.showCut); //剪裁头像页面
 app.get("/docut",router.docut); //执行剪裁
-app.post("/post",router.dopost);    //发表说说
+app.post("/post",router.doPost);    //发表说说
+app.get("/getAllShuoshuo",router.getAllShuoshuo);  //AJAX服务，列出所有说说
 
 app.listen(3000);
