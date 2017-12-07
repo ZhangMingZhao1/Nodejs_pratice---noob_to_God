@@ -217,19 +217,20 @@ exports.docut = function (req, res, next) {
 
 exports.doPost = function (req, res, next) {
     //需要用户登陆
-
     if (req.session.login != "1") {
         res.end("非法闯入，这个页面要求登陆! ");
         return;
     }
-
+    //用户名
     var username = req.session.username;
     //发表说说的表单
     //得到用户填写的东西
     var form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) {
-
+        //得到表单之后做的事情
         var content = fields.content;
+
+        //现在可以证明，用户名没有被占用
         db.insertOne("posts", {
             "username": username,
             "datetime": new Date(),
@@ -246,3 +247,29 @@ exports.doPost = function (req, res, next) {
         })
     })
 }
+
+exports.getAllShuoshuo = function (req,res,next) {
+    //这个页面接受一个参数，页面
+    var page = req.query.page;
+    db.find("posts",{},{"pageamount":20,"page":page,"sort":{"datetime":-1}},function (err,result) {
+        res.json(result);
+    });
+};
+
+//列出某个用户的信息
+exports.getuserinfo = function (req,res,next) {
+    //这个页面接受一个参数，页面
+    var username = req.query.username;
+    db.find("users",{"username":username},function (err,result) {
+        if(err || result.length == 0) {
+            res.json("");
+            return;
+        }
+        var obj = {
+            "username" : result[0].username,
+            "avatar" : result.avatar,
+            "_id" : result[0]._id
+        };
+        res.json(obj);
+    });
+};

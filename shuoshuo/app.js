@@ -31,5 +31,7 @@ app.get("/cut",router.showCut); //剪裁头像页面
 app.get("/docut",router.docut); //执行剪裁
 app.post("/post",router.doPost);    //发表说说
 app.get("/getAllShuoshuo",router.getAllShuoshuo);  //AJAX服务，列出所有说说
+app.get("/getuserinfo",router.getuserinfo); //列出所有说说Ajax服务
+
 
 app.listen(3000);

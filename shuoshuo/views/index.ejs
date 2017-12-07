@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>班级说说</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,13 @@
         #warning {
             display: none;
         }
+        .grid {
+            height: 200px;
+        }
+        .avatar {
+            border-radius:50%;
+        }
+
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -71,9 +78,8 @@
     <!--登陆的时候，显示这些提示-->
     <div class="container">
         <div class="row">
-
             <div class="col-lg-1">
-                <a href="/setAvatar"><img src="/avatar/<%= avatar %>" alt=""></a>
+                <a href="/setAvatar"><img class="avatar"  src="/avatar/<%= avatar %>" alt=""></a>
             </div>
 
             <div class="col-lg-6 col-lg-offset-2" >
@@ -88,9 +94,7 @@
 
 <div class="container">
     <!-- Example row of columns -->
-    <div class="row">
-
-
+    <div class="row" id = "allShuoshuo">
 
     </div>
 
@@ -101,24 +105,58 @@
     </footer>
 </div> <!-- /container -->
 
-<script type = "text/template">
-    <div class="col-md-4">
-        <h2><img width="40" src="/avatar/<>" alt=""></h2>
-        <h2><%= shuoshuo[i].username%>说:</h2>
-        <p><%= shuoshuo[i].content %></p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+<script type = "text/template" id = "moban">
+    <div class="col-md-4 grid">
+        <h2><img width="40" class = "avatar" src="/avatar/{{=avatar}}" alt="">{{=username}}说：</h2>
+        <p>{{=content}}</p>
+        <p>{{=datetime}}</p>
+        <p><a class="btn btn-default" href="#" role="button">查看详细</a></p>
     </div>
 </script>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src = "/js/underscore-noflect.js"></script>
+
 <script type="text/javascript">
+    var $allShuoshuo = $("#allShuoshuo")
+    //得到模版函数
+    var compiled = _.template($("#moban").html());
+    //请求分页的说说信息
+    $.ajax({
+        "url" : "/getAllShuoshuo?page=0",
+        "type" : "get",
+        "success" : function (result) {
+            //result是一个数组
+            //console.log(Array.isArray(result));
+            iterator(0);
+            //迭代器
+            function iterator(i) {
+                if(i == result.length) {
+                    //在这里书写请求完毕之后做的事情
+                    return;//不用继续迭代了
+                }
+                $.get("/getuserinfo?username=" + result[i].username, function(result2) {
+                        //修改字典，给字典增加一项
+                        result[i].avatar = result2.avatar;
+//                        console.log(result[i])
+                        //组装模版
+                        var htmlString = compiled(result[i]);
+                        //添加了DOM
+                        $("#allShuoshuo").append($(htmlString));
+                        iterator(i + 1);
+                });
+            }
+        }
+    })
+
+    //文本框得到焦点，错误框消失
     $("input").focus(function(){
         $("#warning").fadeOut();
     });
+    //注册按钮
     $("#signin").click(function(){
         //注册按钮的事件，用ajax提交表单
         $.post("/dologin",{
@@ -140,13 +178,12 @@
             }
         });
     });
-
+    //发表说说按钮
     $("#push").click(function(){
         //注册按钮的事件，用ajax发表
         $.post("/post",{
             "content" : $("#content").val()
         },function(result){
-
             if(result == "1"){
                 //注册成功
                 alert("发布成功");

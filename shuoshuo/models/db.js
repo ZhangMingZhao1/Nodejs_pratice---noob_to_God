@@ -67,9 +67,11 @@ exports.find = function (collectionName,json,C,D) {
         var args = C;
         var callback = D;
         //应该省略的条数
-        var skipnumber = args.pageamount * args.page;
+        var skipnumber = args.pageamount * args.page || 0;
         //数目限制
-        var limit = args.pageamount;
+        var limit = args.pageamount || 0;
+        //排序方式
+        var sort = args.sort || {};
     }else {
         throw new Error("find函数的参数个数，必须是3个，或者4个");
         return;
@@ -78,7 +80,7 @@ exports.find = function (collectionName,json,C,D) {
     // console.log("略过了"+skipnumber+"条"+"限制在"+limit+"条");
     //链接数据库，链接之后查找所有
     _connectDB(function (err,db) {
-        var cursor = db.collection(collectionName).find(json).skip(skipnumber).limit(limit);
+        var cursor = db.collection(collectionName).find(json).skip(skipnumber).limit(limit).sort(sort);
         cursor.each(function (err, doc) {
             if(err) {
                 callback(err,null);
