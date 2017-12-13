@@ -23,7 +23,6 @@
 
 <script type="text/javascript">
     $("input").click(function () {
-        //否则带像素
         var w = parseInt($(".jcrop-holder>div:first").css("width"));
         var h = parseInt($(".jcrop-holder>div:first").css("height"));
         var x = parseInt($(".jcrop-holder>div:first").css("left"));
@@ -35,7 +34,7 @@
             "x" : x,
             "y" : y
         },function(result){
-            if(result == "1") {
+            if(result == "1"){
                 alert("改名成功");
                 window.location = "/";
             }

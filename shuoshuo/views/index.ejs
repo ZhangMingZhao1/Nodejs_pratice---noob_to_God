@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -8,187 +7,214 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="/favicon.ico">
 
     <title>班级说说</title>
-
     <!-- Bootstrap core CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
-
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-    <style type = "text/css">
-        #warning {
-            display: none;
-        }
+    <link href="/css/jumbotron.css" rel="stylesheet">
+    <style type="text/css">
         .grid {
             height: 200px;
         }
+        body {
+            padding-top: 50px;
+        }
         .avatar {
-            border-radius:50%;
+            border-radius: 50%;
         }
 
+        #quanbushuoshuo {
+            height: 500px;
+        }
     </style>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/underscore-noflect.js"></script>
 </head>
 
 <body>
-
-
 <% include header.ejs %>
+
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-    <%if(!login){%>
-    <!--没有登陆的时候，显示这些提示-->
+    <% if(!login){ %>
+    <!-- 没有登陆的时候，显示登陆提示-->
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
                 <h1>
                     欢迎！
                 </h1>
-                <p>班级说说是我们交流的园地，欢迎注册!</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">注册</a></p>
+
+                <p>班级说说是我们交流的园地，欢迎注册！</p>
+
+                <p><a class="btn btn-primary btn-lg" href="/regist" role="button">注册</a></p>
             </div>
             <div class="col-lg-6">
-
                 <p>已有账号登陆</p>
 
                 <form>
                     <div class="form-group">
                         <label for="username">用户名</label>
-                        <input type="text" class="form-control" id="username" placeholder="可以是中文，不能和别人重复">
+                        <input type="text" class="form-control" id="username" placeholder="用户名，可以是中文，不能和别人重复">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">密码</label>
-                        <input type="password" class="form-control" id="password" placeholder="至少六位">
+                        <label for="password">密码</label>
+                        <input type="password" class="form-control" id="password" placeholder="密码，至少6位">
                     </div>
-
-                    <button type="button" class="btn btn-success" id = "signin">登陆</button>
+                    <button type="button" id="denglu" class="btn btn-success">登陆</button>
                 </form>
-                <div class="alert alert-danger" role="alert" id ="warning"></div>
+                <div class="alert alert-danger" role="alert" id="cuowukuang" style="display:none;"></div>
             </div>
         </div>
     </div>
-    <%}else{%>
-    <!--登陆的时候，显示这些提示-->
+    <% }else{ %>
+    <!-- 登陆之后，显示发言框-->
     <div class="container">
         <div class="row">
-            <div class="col-lg-1">
-                <a href="/setAvatar"><img class="avatar"  src="/avatar/<%= avatar %>" alt=""></a>
+            <div class="col-lg-1 " >
+                <a href="/setavatar"><img width="200px" class="avatar" src="/avatar/<%= avatar %>" alt=""/></a>
             </div>
-
-            <div class="col-lg-6 col-lg-offset-2" >
-               <p> <%=username%> </p>
+            <div class="col-lg-6 col-lg-offset-2">
+                <p><%= username %></p>
                 <textarea name="content" id="content" cols="80" rows="4"></textarea>
-                <button type="button" class="btn btn-success" id = "push">发表说说</button>
+                <button type="button" id="fabiao" class="btn btn-success">发表说说</button>
             </div>
         </div>
     </div>
-    <%}%>
+    <% } %>
 </div>
 
 <div class="container">
-    <!-- Example row of columns -->
-    <div class="row" id = "allShuoshuo">
+    <!-- 分页条-->
+    <nav>
+        <ul class="pagination">
+
+        </ul>
+    </nav>
+    <script type="text/javascript">
+        //分页条的Ajax
+        $.get("/getshuoshuoamount", function (result) {
+            var amount = parseInt(result);
+            //总页数
+            pageamount = Math.ceil(amount / 20);
+            for (var i = 0; i < pageamount; i++) {
+                $(".pagination").append("<li><a href='javascript:void(0);'>" + i + "</a></li>");
+            }
+            $(".pagination li:first").addClass("active");
+            //监听
+            $(".pagination li").click(function () {
+                var page = $(this).index();
+                getPage(page);
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+        })
+    </script>
+    <!-- 分页条-->
+    <!-- 20条记录 -->
+    <div class="row" id="quanbushuoshuo">
 
     </div>
+    <!-- 20条记录 -->
+</div>
+<!-- /container -->
+<footer>
+    <p>&copy; Company 2014</p>
+</footer>
 
-    <hr>
-
-    <footer>
-        <p>&copy; 2016 Company, Inc.</p>
-    </footer>
-</div> <!-- /container -->
-
-<script type = "text/template" id = "moban">
+<script type="text/template" id="moban">
     <div class="col-md-4 grid">
-        <h2><img width="40" class = "avatar" src="/avatar/{{=avatar}}" alt="">{{=username}}说：</h2>
+        <h2><img width="40" class="avatar" src="/avatar/{{=avatar}}" alt=""/>{{=username}}说：</h2>
+
         <p>{{=content}}</p>
+
         <p>{{=datetime}}</p>
+
         <p><a class="btn btn-default" href="#" role="button">查看详细</a></p>
     </div>
 </script>
+
+
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src = "/js/underscore-noflect.js"></script>
+
 
 <script type="text/javascript">
-    var $allShuoshuo = $("#allShuoshuo")
-    //得到模版函数
+    var $quanbushuoshuo = $("#quanbushuoshuo");
+    //得到模板函数
     var compiled = _.template($("#moban").html());
-    //请求分页的说说信息
-    $.ajax({
-        "url" : "/getAllShuoshuo?page=0",
-        "type" : "get",
-        "success" : function (result) {
-            //result是一个数组
-            //console.log(Array.isArray(result));
-            iterator(0);
-            //迭代器
-            function iterator(i) {
-                if(i == result.length) {
-                    //在这里书写请求完毕之后做的事情
-                    return;//不用继续迭代了
-                }
-                $.get("/getuserinfo?username=" + result[i].username, function(result2) {
-                        //修改字典，给字典增加一项
-                        result[i].avatar = result2.avatar;
-//                        console.log(result[i])
-                        //组装模版
-                        var htmlString = compiled(result[i]);
-                        //添加了DOM
-                        $("#allShuoshuo").append($(htmlString));
-                        iterator(i + 1);
-                });
-            }
-        }
-    })
 
-    //文本框得到焦点，错误框消失
-    $("input").focus(function(){
-        $("#warning").fadeOut();
+    getPage(0);
+    //请求分页的说说信息
+    function getPage(page) {
+        //将现在的页面内容清除
+        $("#quanbushuoshuo").html("");
+        $.ajax({
+            "url": "/getallshuoshuo?page=" + page,
+            "type": "get",
+            "success": function (result) {
+                //result是一个数组
+                //console.log(Array.isArray(result));
+                iterator(0);
+                //迭代器
+                function iterator(i) {
+                    if (i == result.length) {
+                        //在这里书写请求完毕之后做的事情
+                        return;  //不用继续迭代了
+                    }
+                    $.get("/getuserinfo?username=" + result[i].username, function (result2) {
+                            //修改字典，给字典增加一项
+                            result[i].avatar = result2.avatar;
+                            //组装模板
+                            var htmlstring = compiled(result[i]);
+                            //添加DOM
+                            $("#quanbushuoshuo").append($(htmlstring));
+                            iterator(i + 1);
+                        }
+                    );
+                }
+            }
+        });
+    }
+
+    //文本框得到焦点，错误提示小时
+    $("input").focus(function () {
+        $("#cuowukuang").fadeOut();
     });
-    //注册按钮
-    $("#signin").click(function(){
+    //登陆按钮，登陆
+    $("#denglu").click(function () {
         //注册按钮的事件，用ajax提交表单
-        $.post("/dologin",{
-            "username" : $("#username").val(),
-            "password" : $("#password").val()
-        },function(result){
-            console.log("AJAX成功");
-            if(result == "1"){
+        $.post("/dologin", {
+            "username": $("#username").val(),
+            "password": $("#password").val()
+        }, function (result) {
+            if (result == "1") {
                 //注册成功
-                alert("登陆成功！将自动跳转到首页");
                 window.location = "/";
-            }else if(result == "-1"){
-                //用户名被占用
-                $("#warning").fadeIn();
-                $("#warning").html("用户名不存在");
-            }else if(result == "-2"){
-                $("#warning").fadeIn();
-                $("#warning").html("密码错误");
+            } else if (result == "-1") {
+                $("#cuowukuang").fadeIn();
+                $("#cuowukuang").html("用户名不存在");
+            } else if (result == "-2") {
+                $("#cuowukuang").fadeIn();
+                $("#cuowukuang").html("密码错误！");
             }
         });
     });
-    //发表说说按钮
-    $("#push").click(function(){
-        //注册按钮的事件，用ajax发表
-        $.post("/post",{
-            "content" : $("#content").val()
-        },function(result){
-            if(result == "1"){
+
+    //点击发布按钮之后做的事情
+    $("#fabiao").click(function () {
+        //注册按钮的事件，用ajax提交表单
+        $.post("/post", {
+            "content": $("#content").val()
+        }, function (result) {
+            if (result == "1") {
                 //注册成功
                 alert("发布成功");
-            }else {
-                alert("发布失败，请联系管理员")
+            } else {
+                alert("请联系管理员，发布失败");
             }
         });
     });
