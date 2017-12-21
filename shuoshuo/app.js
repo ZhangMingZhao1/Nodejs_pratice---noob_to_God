@@ -32,6 +32,7 @@ app.get("/docut",router.docut); //执行剪裁
 app.post("/post",router.doPost);    //发表说说
 app.get("/getAllShuoshuo",router.getAllShuoshuo);  //AJAX服务，列出所有说说
 app.get("/getuserinfo",router.getuserinfo); //列出所有说说Ajax服务
-app.get("/getshuoshuoamount",router.getshuoshuoamount)
+app.get("/getshuoshuoamount",router.getshuoshuoamount) //说说总数
+app.get("/user/:user",router.showUser); //显示用户所有说说
 
 app.listen(3000);

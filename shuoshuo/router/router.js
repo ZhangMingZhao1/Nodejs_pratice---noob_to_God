@@ -314,3 +314,22 @@ exports.getshuoshuoamount = function(req,res,next){
         res.send(count.toString());
     });
 };
+
+//显示某一个用户的个人主页
+exports.showUser = function(req,res,next){
+    var user = req.params["user"];
+    db.find("posts",{"username":user},function(err,result){
+        db.find("users",{"username":user},function(err,result2){
+            console.log(result2);
+            res.render("user",{
+                "login": req.session.login == "1" ? true : false,
+                "username": req.session.login == "1" ? req.session.username : "",
+                "user" : user,
+                "active" : "我的说说",
+                "cirenshuoshuo" : result,
+                "cirentouxiang" : result2[0].avatar
+            });
+        });
+    });
+
+}
