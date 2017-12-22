@@ -34,5 +34,7 @@ app.get("/getAllShuoshuo",router.getAllShuoshuo);  //AJAX服务，列出所有�
 app.get("/getuserinfo",router.getuserinfo); //列出所有说说Ajax服务
 app.get("/getshuoshuoamount",router.getshuoshuoamount) //说说总数
 app.get("/user/:user",router.showUser); //显示用户所有说说
-
+app.get("/post/:oid",router.showUser); //显示用户所有说说
+app.get("/userlist",router.showuserlist); //显示用户所有说说
+app.get("/exit",router.doexit); //退出
 app.listen(3000);

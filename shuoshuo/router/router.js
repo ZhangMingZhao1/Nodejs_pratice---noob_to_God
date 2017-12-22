@@ -318,9 +318,9 @@ exports.getshuoshuoamount = function(req,res,next){
 //显示某一个用户的个人主页
 exports.showUser = function(req,res,next){
     var user = req.params["user"];
+    console.log(user);
     db.find("posts",{"username":user},function(err,result){
         db.find("users",{"username":user},function(err,result2){
-            console.log(result2);
             res.render("user",{
                 "login": req.session.login == "1" ? true : false,
                 "username": req.session.login == "1" ? req.session.username : "",
@@ -331,5 +331,28 @@ exports.showUser = function(req,res,next){
             });
         });
     });
+}
+
+//显示所有注册用户
+exports.showuserlist = function(req,res,next) {
+    db.find("users", {}, function (err, result) {
+        res.render("userlist", {
+            "login": req.session.login == "1" ? true : false,
+            "username": req.session.login == "1" ? req.session.username : "",
+            "active": "所有成员",
+            "suoyouchengyuan": result
+        });
+    })
+}
+
+exports.doexit = function (req,res,next) {
+    req.session.login = -1;
+    req.session.username = "";
+    res.render("index", {
+        "login": req.session.login == "1" ? true : false,
+        "username": req.session.login == "1" ? req.session.username : "",
+        "active": "全部说说"
+    });
 
 }
+
