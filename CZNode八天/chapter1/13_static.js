@@ -12,6 +12,7 @@ http.createServer(function(req, res) {
     }
     //拓展名
     var extname = path.extname(pathname);
+    console.log(pathname);
     // console.log(extname);
     //真的读取这个文件
     //缺点，太智能，但是不能检测是什么类型的文件
@@ -28,11 +29,11 @@ http.createServer(function(req, res) {
         //MIME类型，就是
         //网页文件：text/html
         //jpg文件：image/jpg
-        var  mime = getMIME(extname)
+        var  mime = getMIME(extname);
         res.writeHead(200,{"Content-type":mime});
         res.end(data);
     })
-}).listen(3000,"127.0.0.1")
+}).listen(3000,"127.0.0.1");
 
 function getMIME(extname) {
     switch (extname) {

@@ -13,7 +13,8 @@ function sss (req, res, next) {
     if (referer && referer.indexOf('localhost1') >= 0) {
         next();
     } else {
-        console.log(res);
+        // console.log(res);
+        console.log(1);
         // res.state(500).send('盗链图片来自:<a href="xxxxx"></a>');
         res.send('盗链图片来自:<a href="xxxxx"></a>');
         return false;
@@ -36,6 +37,7 @@ app.get('/public/*',
         }
 });
 app.get('/', function(req, res) {
+    console.log(10);
     res.render('index', { helloWorld: 'hello,world' });
 });
 

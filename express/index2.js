@@ -10,18 +10,19 @@ app.get('/public/*',
     function (req, res, next) {
         var referer = req.headers.referer;
         console.log(referer);
-        if (referer && referer.indexOf('localhost1') <= 0) {
-            try {
+        if (referer && referer.indexOf('localhost1') < 0) {
+
                 fs.readFile("./views/no.png", function (err, data) {
+                    if(err) {
+                        console.log(err);
+                    }
                     console.log("no");
                     res.writeHead(200, {"Content-type": "image/jpg"});
-                    console.log(err);
+
                     // console.log(data);
                     res.end(data);
                 });
-            } catch (err) {
-                console.log(err);
-            }
+
         } else {
             try {
                 fs.readFile("./views/a.jpg", function (err, data) {
