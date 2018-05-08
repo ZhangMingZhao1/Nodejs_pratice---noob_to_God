@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body><h1>我是index页面，我引用了秘密script文件</h1>
+<input type="text" placeholder="输入你想说的话" id="text"/>
+<input type="button" value="发送" id="btn" />
+
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+    var socket = io();
+    document.getElementById("btn").onclick = function () {
+        socket.emit('question',document.getElementById("text").value);
+    }
+    socket.on("answer",function (msg) {
+        alert("服务器说它" + msg);
+    })
+</script>
+</body>
+</html>
