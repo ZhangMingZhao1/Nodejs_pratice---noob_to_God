@@ -4,7 +4,7 @@ var fs = require("fs");
 var server = http.createServer(function (req, res) {
     if (req.url == "/") {
         //显示首页
-        fs.readFile("./index.ejs", function (err, data) {
+        fs.readFile("./index.html", function (err, data) {
             res.end(data);
         });
     }
