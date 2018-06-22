@@ -20,4 +20,4 @@ app.post("/up",router.doPost);
 app.use(function (req,res) {
     res.render("err");
 });
-app.listen(3000);
+app.listen(3002);
