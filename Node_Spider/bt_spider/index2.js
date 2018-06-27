@@ -22,15 +22,19 @@ function getTitleHref(url,page) {
       let html = iconv.decode(Buffer.concat(chunks),'gb2312');
       let $ = cheerio.load(html, {decodeEntities: false});
       // console.log($);
-      $('.co_content8 .ulink').each(function(i,d) {
-        let $d = $(d);
+      const asArray = $('.co_content8 .ulink');
+      async function runAsync(i) {
+        let $d = $(asArray[i]);
         let titleHref = [];
-        titleHref.push({
-          href: $d.attr('href')
-        });
-        getLink(titleHref);
-      });
-      // console.log(ans);
+        if($d) {
+          titleHref.push({
+            href: $d.attr('href')
+          });
+          return await getLink().then( () => runAsync(i+1))
+        }
+      }
+      runAsync(0);
+      console.log(ans);
     });  
   });
 }
