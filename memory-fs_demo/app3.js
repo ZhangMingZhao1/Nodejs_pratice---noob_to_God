@@ -42,16 +42,11 @@ console.log(fs.readFileSync("/from/from2/file1.txt",'utf-8'));// returns Buffer(
 // }
 
 
-async function copyDir(from, to) {
-    // console.log(chalk.magenta(`🏇 copy ${from} `));
-    try{
-        // await isExist(to);
-        fs.existsSync(path);
-    }catch(err){
+function copyDir(from, to) {
+    if(!fs.existsSync(to)) {
         fs.mkdirSync(to);
     }
     const paths = fs.readdirSync(from);
-
     console.log(paths);
     paths.forEach((path)=>{
         var src = `${from}/${path}`;
