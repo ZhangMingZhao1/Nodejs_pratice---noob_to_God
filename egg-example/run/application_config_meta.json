@@ -1,0 +1,253 @@
+{
+  "keys": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/config/config.default.js",
+  "session": {
+    "maxAge": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-session/config/config.default.js",
+    "key": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-session/config/config.default.js",
+    "httpOnly": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-session/config/config.default.js",
+    "encrypt": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-session/config/config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+    "protocolWhiteList": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+    "defaultMiddleware": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+    "csrf": {
+      "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "useSession": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "ignoreJSON": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "cookieName": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "sessionName": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "headerName": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "bodyName": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "queryName": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+    },
+    "xframe": {
+      "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+    },
+    "hsts": {
+      "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.local.js",
+      "maxAge": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "includeSubdomains": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+    },
+    "dta": {
+      "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+    },
+    "noopen": {
+      "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+    },
+    "nosniff": {
+      "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+    },
+    "xssProtection": {
+      "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+    },
+    "csp": {
+      "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "policy": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js",
+      "checkAddress": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-security/config/config.default.js"
+  },
+  "jsonp": {
+    "limit": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-jsonp/config/config.default.js",
+    "callback": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-jsonp/config/config.default.js",
+    "csrf": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-jsonp/config/config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-onerror/config/config.default.js",
+    "appErrorFilter": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-onerror/config/config.default.js",
+    "templatePath": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-onerror/config/config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-i18n/config/config.default.js",
+    "dirs": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-i18n/config/config.default.js",
+    "queryField": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-i18n/config/config.default.js",
+    "cookieField": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-i18n/config/config.default.js"
+  },
+  "watcher": {
+    "type": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-watcher/config/config.local.js",
+    "eventSources": {
+      "default": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-watcher/config/config.default.js",
+      "development": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-watcher/config/config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-schedule/config/config.default.js",
+      "file": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-schedule/config/config.default.js"
+    }
+  },
+  "multipart": {
+    "mode": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js",
+    "autoFields": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js",
+    "defaultCharset": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js",
+    "fieldNameSize": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js",
+    "fieldSize": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js",
+    "fields": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js",
+    "fileSize": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js",
+    "files": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js",
+    "fileExtensions": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js",
+    "whitelist": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js",
+    "tmpdir": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-multipart/config/config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-development/config/config.default.js",
+    "ignoreDirs": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-development/config/config.default.js",
+    "fastReady": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-development/config/config.default.js",
+    "reloadOnDebug": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-development/config/config.default.js",
+    "overrideDefault": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-development/config/config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-logrotator/config/config.default.js",
+    "hourDelimiter": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-logrotator/config/config.default.js",
+    "filesRotateBySize": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-logrotator/config/config.default.js",
+    "maxFileSize": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-logrotator/config/config.default.js",
+    "maxFiles": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-logrotator/config/config.default.js",
+    "rotateDuration": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-logrotator/config/config.default.js",
+    "maxDays": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-logrotator/config/config.default.js"
+  },
+  "static": {
+    "prefix": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-static/config/config.default.js",
+    "dir": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-static/config/config.default.js",
+    "dynamic": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-static/config/config.default.js",
+    "preload": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-static/config/config.default.js",
+    "buffer": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-static/config/config.default.js",
+    "maxFiles": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-static/config/config.default.js"
+  },
+  "view": {
+    "root": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-view/config/config.default.js",
+    "cache": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-view/config/config.local.js",
+    "defaultExtension": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-view/config/config.default.js",
+    "defaultViewEngine": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-view/config/config.default.js",
+    "mapping": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-view/config/config.default.js"
+  },
+  "env": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "name": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "proxy": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "protocolHeaders": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "ipHeaders": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "hostHeaders": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "pkg": {
+    "name": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "version": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "description": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "main": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "scripts": {
+      "dev": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+      "test": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+    },
+    "author": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "license": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "dependencies": {
+      "egg": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+    },
+    "devDependencies": {
+      "egg-bin": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+    }
+  },
+  "baseDir": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "HOME": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "rundir": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "dump": {
+    "ignore": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "notFound": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "sitefile": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "middlewares": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "httpClient": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+  },
+  "bodyParser": {
+    "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "formLimit": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "jsonLimit": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "strict": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "queryString": {
+      "arrayLimit": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+      "depth": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+      "parameterLimit": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "env": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "level": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "consoleLevel": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "disableConsoleAfterReady": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "outputJSON": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "buffer": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "appLogName": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "coreLogName": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "agentLogName": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "errorLogName": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "coreLogger": {
+      "consoleLevel": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.local.js"
+    },
+    "allowDebugAtProd": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "dnsCacheLookupInterval": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "dnsCacheMaxLength": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "request": {
+      "timeout": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "logging": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+  },
+  "coreMiddleware": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "workerStartTimeout": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "serverTimeout": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+      "port": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+      "hostname": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js",
+    "responseTimeout": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+  },
+  "onClientError": "/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg/config/config.default.js"
+}

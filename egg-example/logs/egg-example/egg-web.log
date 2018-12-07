@@ -1,0 +1,16 @@
+2018-12-07 18:38:53,245 INFO 39137 [egg:logger] init all loggers with options: {"dir":"/Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/logs/egg-example","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-example-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2018-12-07 18:38:53,282 INFO 39137 [egg-schedule]: register schedule /Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-logrotator/app/schedule/clean_log.js
+2018-12-07 18:38:53,282 INFO 39137 [egg-schedule]: register schedule /Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2018-12-07 18:38:53,282 INFO 39137 [egg-multipart] stream mode enable
+2018-12-07 18:38:53,375 INFO 39137 [egg-static] starting static serve /public/ -> /Users/zhangmingzhao/Desktop/code/Nodejs_pratice---noob_to_God/egg-example/app/public
+2018-12-07 18:38:53,378 INFO 39137 [egg-security] use csrf middleware
+2018-12-07 18:38:53,379 INFO 39137 [egg-security] use methodnoallow middleware
+2018-12-07 18:38:53,379 INFO 39137 [egg-security] use noopen middleware
+2018-12-07 18:38:53,380 INFO 39137 [egg-security] use nosniff middleware
+2018-12-07 18:38:53,381 INFO 39137 [egg-security] use xssProtection middleware
+2018-12-07 18:38:53,384 INFO 39137 [egg-security] use xframe middleware
+2018-12-07 18:38:53,385 INFO 39137 [egg-security] use dta middleware
+2018-12-07 18:38:53,385 INFO 39137 [egg-security] compose 7 middlewares into one security middleware
+2018-12-07 18:38:53,393 INFO 39137 [egg:core] dump config after load, 4ms
+2018-12-07 18:38:53,404 INFO 39137 [egg-watcher:application] watcher start success
+2018-12-07 18:38:53,409 INFO 39137 [egg:core] dump config after ready, 3ms
